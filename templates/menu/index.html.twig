@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notre menu - Quai Antique{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-3">
+            <h3>Filtrer</h3>
+            {{ form(form) }}
+        </div>
+        <div class="col-md-9">
+
+            <h1>Notre menu</h1>
+
+            <div class="row product-container">
+                {% for menu in menus %}
+                    <div class="col-md-4">
+                        <div class="product-item text-center">
+                            <a href="{{ path('app_menus', {'slug' : menu.slug}) }}"><img src="/uploads/{{ menu.illustration }}" alt="{{ menu.name }}" class="img-fluid"></a><hr>
+                            <h5>{{ menu.name }}</h5>
+                            <span class="product-subtitle">{{ menu.subtitle }}</span>
+                            <span class="product-price">{{ menu.price / 100|number_format(2) }} €</span>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

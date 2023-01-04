@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ menu.name }} - Quai Antique{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+            <div class="col-md-4 mt-5">
+                <img src="/uploads/{{ menu.illustration }}" alt="{{ menu.name }}" class="img-fluid"><hr></a>
+            </div>
+            <div class="col-md-8 mt-5">
+                <h3>{{ menu.name }}</h3>
+                <p>{{ menu.subtitle }}</p>
+                <span class="product-page-price">{{ menu.price / 100|number_format(2) }} €</span>
+                <hr>
+                <p>
+                    {{ menu.description }}
+                </p>
+                <hr>
+            </div>
+            </div>
+    </div>
+
+{% endblock %}
