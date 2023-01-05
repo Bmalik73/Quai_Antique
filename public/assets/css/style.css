@@ -38,29 +38,19 @@ li:hover{
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
-/* Carousel base class */
-.carousel {
-    margin-bottom: 4rem;
+.c-item {
+    height: 590px;
 }
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-    bottom: 3rem;
-    z-index: 10;
+.c-img {
+    object-fit: cover;
+    filter: brightness(0.6);
+    height: 44rem;
 }
-
-/* Declare heights because of positioning of img element */
-.carousel-item {
-    height: 49rem;
+.titleContent{
+    font-family: 'Aguafina Script', cursive;
+    font-size: 100px;
+    color:#f3c586;
 }
-.carousel-item > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 500px;
-    height: 48rem;
-}
-
-
 /* MARKETING CONTENT
 -------------------------------------------------- */
 .card{

@@ -14,7 +14,12 @@ class AccountPasswordController extends AbstractController
 {
     private $entityManager;
 
-    public function __construct(EntityManagerInterface $entityManager){
+    /**
+     * AccountPasswordController constructor.
+     * @param $entityManager
+     */
+    public function __construct(EntityManagerInterface $entityManager)
+    {
         $this->entityManager = $entityManager;
     }
 
@@ -28,10 +33,10 @@ class AccountPasswordController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $old_pwd = $form->get('old_password')->getData();
 
-            if ($hasher->isPasswordValid($user, $old_pwd)){
+            if ($hasher->isPasswordValid($user, $old_pwd)) {
                 $new_pwd = $form->get('new_password')->getData();
                 $password = $hasher->hashPassword($user, $new_pwd);
 
@@ -47,7 +52,6 @@ class AccountPasswordController extends AbstractController
             'form' => $form,
             'notification' => $notification
         ]);
-
     }
 }
 
