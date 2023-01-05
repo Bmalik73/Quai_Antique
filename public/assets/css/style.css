@@ -7,7 +7,7 @@ body {
     padding-bottom: 3rem;
     color: #5a5a5a;
     font-family: Montserrat;
-    background-color: #96532E;
+    background-color: #3c2503;
     color: #ffffff;
     position: relative;
 }
@@ -24,7 +24,7 @@ body {
 .navbar-item-custom a {
     color:#f3c586;
 }
-a:hover {
+.navbar-item-custom a:hover {
     color:#855005;
     text-decoration:none;
 }
@@ -66,9 +66,12 @@ li:hover{
     letter-spacing: 0.1rem;
 
 }
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
 a:hover {
-    color:#855005;
-    background-color: #212529 ;
+    color: #f3c586;
     text-decoration:none;
 }
 
