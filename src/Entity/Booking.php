@@ -29,6 +29,9 @@ class Booking
     #[ORM\Column]
     private ?int $seats = null;
 
+    #[ORM\ManyToOne(inversedBy: 'bookings')]
+    private ?User $book = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class Booking
     public function setSeats(int $seats): self
     {
         $this->seats = $seats;
+
+        return $this;
+    }
+
+    public function getBook(): ?User
+    {
+        return $this->book;
+    }
+
+    public function setBook(?User $book): self
+    {
+        $this->book = $book;
 
         return $this;
     }
