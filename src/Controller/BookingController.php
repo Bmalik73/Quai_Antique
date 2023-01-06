@@ -33,7 +33,7 @@ class BookingController extends AbstractController
             $this->entityManager->persist($booking);
             $this->entityManager->flush();
             $this->addFlash('success', 'Votre réservation a bien été envoyé');
-            return $response = $this->render('reservation/modif/index.html.twig', [
+            return $response = $this->render('booking_show/index.html.twig', [
                     'booking' => $booking,
                 ]);
 
