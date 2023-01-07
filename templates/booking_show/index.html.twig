@@ -7,4 +7,12 @@
        Bienvenue {{ app.user.firstname }} dans votre espace de réservation.<br/>
        C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personnelles.
        <hr>
+       {% for booking in bookings %}
+              <div>
+                     Date de réservation : {{ booking.day|date('d/m/Y') }}
+                     Heure de réservation : {{ booking.hour|date('H:i') }}
+                     Nombre de personnes : {{ booking.seats }}
+              </div>
+       {% endfor %}
+
 {% endblock %}

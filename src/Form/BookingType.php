@@ -11,25 +11,20 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Security\Core\Security;
 
 class BookingType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder
-            ->add('username', TextType::class, [
-                'label'=>'Mail',
-                /*'disabled'=>true,*/
+        $email = $this->security->getUser()->getEmail();
 
+        $builder
+            ->add('email', TextType::class, [
+                'label'=>'Mail',
+                'disabled'=>true,
+                'data' => $email
             ])
-            /*->add('name', EntityType::class, [
-                'class' => User::class,
-                'query_builder' => function (EntityRepository $user) {
-                    return $user->createQueryBuilder('u')
-                        ->orderBy('u.lastname', 'ASC');
-                },
-                'choice_label' => 'lastname',
-            ])*/
             ->add('day', DateType::class, [
                 'label'=>'Jour',
                 'widget' => 'single_text',
@@ -56,6 +51,11 @@ class BookingType extends AbstractType
             ])
             ->add('submit', SubmitType::class, ['label' => 'Réserver'])
         ;
+    }
+
+    public function __construct(Security $security)
+    {
+        $this->security = $security;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
