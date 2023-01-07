@@ -5,13 +5,16 @@
 {% block content %}
        <h1>Récapitulatif de mes réservations</h1>
        Bienvenue {{ app.user.firstname }} dans votre espace de réservation.<br/>
-       C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personnelles.
+       C'est dans cet espace que vous allez pouvoir voir toutes vos réservations.
        <hr>
        {% for booking in bookings %}
-              <div>
-                     Date de réservation : {{ booking.day|date('d/m/Y') }}
-                     Heure de réservation : {{ booking.hour|date('H:i') }}
-                     Nombre de personnes : {{ booking.seats }}
+              <div class="col-md-3"
+                     <hr>
+                     Date de réservation : {{ booking.day|date('d/m/Y') }}<br>
+                     Heure de réservation : {{ booking.hour|date('H:i') }}<br>
+                     Nombre de personnes : {{ booking.seats }}<br>
+                     Allergies : {{ booking.allergy }}<br>
+              <hr>
               </div>
        {% endfor %}
 

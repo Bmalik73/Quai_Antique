@@ -41,6 +41,7 @@ class BookingType extends AbstractType
 
             ->add('allergy', TextType::class, [
                 'label' => 'Allergies',
+                'required' => false,
                 'attr' => [
                     'placeholder' => 'Veuillez indiquer si vous avez des allergies ou des intolérances alimentaires.'
                 ]
