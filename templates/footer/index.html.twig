@@ -1,20 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello FooterController!{% endblock %}
-
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/laragon/www/Quai_Antique/src/Controller/FooterController.php'|file_link(0) }}">src/Controller/FooterController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/laragon/www/Quai_Antique/templates/footer/index.html.twig'|file_link(0) }}">templates/footer/index.html.twig</a></code></li>
-    </ul>
-</div>
+{% block footer %}
+<footer>
+    <div class="container">
+        <p>Horaires d'ouverture déjeuner : {{ timeOpenNoon|date('H:i') }}</p>
+        <p>Horaires de fermeture déjeuner : {{ timeCloseNoon|date('H:i') }}</p>
+        <p>Horaires d'ouverture dîner : {{ timeOpenEvening|date('H:i') }}</p>
+        <p>Horaires de fermeture dîner : {{ timeCloseEvening|date('H:i') }}</p>
+    </div>
+</footer>
 {% endblock %}
