@@ -26,6 +26,12 @@ class Restaurant
     #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $timeCloseEvening = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $seatNoon = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $seatEvening = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +81,30 @@ class Restaurant
     public function setTimeCloseEvening(?\DateTimeInterface $timeCloseEvening): self
     {
         $this->timeCloseEvening = $timeCloseEvening;
+
+        return $this;
+    }
+
+    public function getSeatNoon(): ?int
+    {
+        return $this->seatNoon;
+    }
+
+    public function setSeatNoon(?int $seatNoon): self
+    {
+        $this->seatNoon = $seatNoon;
+
+        return $this;
+    }
+
+    public function getSeatEvening(): ?int
+    {
+        return $this->seatEvening;
+    }
+
+    public function setSeatEvening(?int $seatEvening): self
+    {
+        $this->seatEvening = $seatEvening;
 
         return $this;
     }
