@@ -35,7 +35,7 @@ class BookingType extends AbstractType
                 'label'=>'heure',
                 'input' => 'datetime',
                 'widget' => 'choice',
-                'hours' => [11, 12, 13, 18, 19, 20, 21],
+                'hours' => [11, 12, 13, 14, 18, 19, 20, 21],
                 'minutes' => [00, 15, 30, 45],
             ])
 

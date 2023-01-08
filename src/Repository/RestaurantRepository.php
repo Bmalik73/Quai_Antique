@@ -38,7 +38,30 @@ class RestaurantRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function isBookingPossibleForDay(\DateTimeInterface $day, int $seats): bool
+    {
+        $qb = $this->createQueryBuilder('r')
+            ->select('r.seatNoon, r.seatEvening')
+            ->where('r.timeOpenNoon <= :hour')
+            ->andWhere('r.timeCloseNoon > :hour')
+            ->setParameter('hour', $day->format('H:i:s'));
+        $results = $qb->getQuery()->getOneOrNullResult();
+        if ($results && $seats <= $results['seatNoon']) {
+            return true;
+        }
 
+        $qb = $this->createQueryBuilder('r')
+            ->select('r.seatNoon, r.seatEvening')
+            ->where('r.timeOpenEvening <= :hour')
+            ->andWhere('r.timeCloseEvening > :hour')
+            ->setParameter('hour', $day->format('H:i:s'));
+        $results = $qb->getQuery()->getOneOrNullResult();
+        if ($results && $seats <= $results['seatEvening']) {
+            return true;
+        }
+
+        return false;
+    }
 //    /**
 //     * @return Restaurant[] Returns an array of Restaurant objects
 //     */

@@ -35,6 +35,9 @@ class Booking
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
+    #[ORM\ManyToOne(inversedBy: 'bookings')]
+    private ?Restaurant $relatedTo = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +123,18 @@ class Booking
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getRelatedTo(): ?Restaurant
+    {
+        return $this->relatedTo;
+    }
+
+    public function setRelatedTo(?Restaurant $relatedTo): self
+    {
+        $this->relatedTo = $relatedTo;
 
         return $this;
     }
