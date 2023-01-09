@@ -53,35 +53,11 @@ li:hover{
 }
 /* MARKETING CONTENT
 -------------------------------------------------- */
-.card{
-    background-color: #DE8C5C;
+.isBest{
+    margin-top: 50px;
 }
-.card a {
-    text-decoration:none;
-    font-weight: bold;
-    color: #000000;
-    padding: 10px;
-    background-color: #f9dfbb;
-    border-radius: 5px;
-    letter-spacing: 0.1rem;
-
-}
-a{
-    text-decoration: none;
-    color: #ffffff;
-}
-a:hover {
-    color: #f3c586;
-    text-decoration:none;
-}
-
-.marketing h2 {
-    font-weight: 400;
-    color: black;
-}
-.marketing .card p {
-    margin-right: .75rem;
-    margin-left: .75rem;
+.isBest h2 {
+    font-size: 40px;
 }
 
 

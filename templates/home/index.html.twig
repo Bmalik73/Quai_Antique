@@ -3,32 +3,16 @@
 {% block carousel %}{% endblock %}
 
 {% block content %}
-    <!-- Three columns of text below the carousel -->
-    <div class="row p-4 d-flex justify-content-around" >
-        <div class="card" style="width: 25rem;">
-            <img class="card-img-top" src="{{ asset('assets/img/re.jpg') }}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" >Réserver</a>
-            </div>
+    <div class="isBest">
+        <h2>Nos meilleurs ventes</h2>
+        <p>Découvrez les plats les plus apprécié de notre clientèle.</p>
+    </div>
+    <div class="row" >
+    {% for menu in menus %}
+        <div class="col-md-3">
+            {% include'menu/single_menu.html.twig' %}
         </div>
-        <div class="card" style="width: 25rem;">
-            <img class="card-img-top" src="{{ asset('assets/img/re.jpg') }}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" >Réserver</a>
-            </div>
-        </div>
-        <div class="card" style="width: 25rem;">
-            <img class="card-img-top" src="{{ asset('assets/img/re.jpg') }}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" >Réserver</a>
-            </div>
-        </div>
+    {% endfor %}
 
     </div><!-- /.row -->
 
