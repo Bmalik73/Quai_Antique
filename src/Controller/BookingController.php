@@ -36,6 +36,7 @@ class BookingController extends AbstractController
         $form = $this->createForm(BookingType::class, $booking);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+
             // Récupère l'objet Restaurant associé à la réservation
             $restaurant = $this->entityManager
                 ->getRepository(Restaurant::class)
@@ -46,16 +47,17 @@ class BookingController extends AbstractController
             // Ajout du restaurant à l'objet Booking
             $booking->setRelatedTo($restaurant);
 
-            // Récupère le jour et l'heure de la réservation
+            // Récupère le jour et l'heure et le nombre de place de la réservation
                 $day = $booking->getDay();
                 $hour = $booking->getHour();
+                $seats = $booking->getSeats();
+                /*if ($day === null || $hour === null) {
 
-                if ($day === null || $hour === null) {
                     // Si le jour ou l'heure sont null, affiche un message d'erreur
                     $this->addFlash('danger', 'Jour ou heure de réservation non valides');
                 } else {
                     // Récupère le nombre de places demandées
-                    $seats = $booking->getSeats();
+                    */
 
                     if ($seats <= 0) {
                         // Si le nombre de places est inférieur ou égal à zéro, affiche un message d'erreur
@@ -63,7 +65,6 @@ class BookingController extends AbstractController
                     } else {
                         // Récupère le nombre de places disponibles pour le jour et l'heure de la réservation
                         $availableSeats = $this->getAvailableSeats($day, $hour, $restaurant);
-
                         // Si le nombre de places demandées est disponible
                         if ($availableSeats >= $seats) {
                             // Enregistre l'email de l'utilisateur dans l'objet Booking
@@ -77,7 +78,7 @@ class BookingController extends AbstractController
                         }
                     }
                 }
-            }
+            /*}*/
 
                 return $this->render('booking/index.html.twig', [
                     'form' => $form
