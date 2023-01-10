@@ -2,7 +2,7 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 @import url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap');
-body {
+body{
     padding-top: 3rem;
     padding-bottom: 3rem;
     color: #5a5a5a;
@@ -21,10 +21,10 @@ body {
     text-decoration:none;
 
 }
-.navbar-item-custom a {
+.navbar-item-custom a{
     color:#f3c586;
 }
-.navbar-item-custom a:hover {
+.navbar-item-custom a:hover{
     color:#855005;
     text-decoration:none;
 }
@@ -38,10 +38,10 @@ li:hover{
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
-.c-item {
+.c-item{
     height: 590px;
 }
-.c-img {
+.c-img{
     object-fit: cover;
     filter: brightness(0.6);
     height: 44rem;
@@ -64,13 +64,13 @@ li:hover{
 /* Featurettes
 ------------------------- */
 
-.featurette-divider {
+.featurette-divider{
     margin: 5rem 0; /* Space out the Bootstrap <hr> more */
 }
 .featurette{
     flex-wrap: wrap;
 }
-.featurette-heading {
+.featurette-heading{
     font-weight: 300;
     line-height: 1;
     letter-spacing: -.05rem;
@@ -90,7 +90,11 @@ li:hover{
     max-width: 600px;
     margin: 0 auto;
 }
-.block-small a {
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.block-small a{
     text-decoration:none;
     color: #f3c586;
     padding: 10px;
@@ -107,9 +111,9 @@ li:hover{
 .product-item{
     margin-top: 50px;
 }
-.product-container a {
+.product-container a{
     text-decoration: none;
-    color: white;
+    color: #ffffff;
 }
 .product-item span{
     font-size: 14px;
@@ -132,6 +136,23 @@ li:hover{
     font-size: 19px;
 }
 
+
+/* account*/
+.account-item{
+    background-color: #855005;
+    padding: 70px;
+    border-radius: 5px;
+}
+.account-item a{
+    text-transform: uppercase;
+    font-size: 13px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+.account-item a:hover{
+    color: #3c2503;
+}
 
 
 

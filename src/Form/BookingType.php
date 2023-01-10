@@ -50,7 +50,12 @@ class BookingType extends AbstractType
                 'label' => 'Nombre de personnes',
                 'attr' => ['min' => 1, 'max' => 10]
             ])
-            ->add('submit', SubmitType::class, ['label' => 'Réserver'])
+            ->add('submit', SubmitType::class, [
+                'label' => 'Réserver',
+                'attr' => [
+                    'class' => 'btn-block btn-dark'
+                ]
+            ])
         ;
     }
 
