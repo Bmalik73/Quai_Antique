@@ -84,14 +84,14 @@
                     <img src="{{ asset('assets/img/s.jpg') }}" class="d-block w-100 c-img" alt="Slide 2">
                     <div class="carousel-caption top-0 mt-4">
                         <p class="mt-5 fs-3 text-uppercase titleContent">La saveur des saisons.</p>
-                        <h1 class="display-1 fw-bolder text-capitalize titleContent ">d</p>
+                        <h1 class="display-1 fw-bolder text-capitalize titleContent ">d</h1>>
                     </div>
                 </div>
                 <div class="carousel-item c-item">
                     <img src="{{ asset('assets/img/re.jpg') }}" class="d-block w-100 c-img" alt="Slide 3">
                     <div class="carousel-caption top-0 mt-4">
                         <p class="mt-5 fs-3 text-uppercase titleContent">Convivial, familial et chaleureux</p>
-                        <h1 class="display-1 fw-bolder text-capitalize titleContent ">Restaurant</p>
+                        <h1 class="display-1 fw-bolder text-capitalize titleContent ">Restaurant</h1>
                     </div>
                 </div>
             </div>
@@ -113,15 +113,27 @@
 
     </div><!-- /.container -->
 
-    <!-- FOOTER --><!--{% block footer %}
-    <footer class="footer-custom col-md-6">
+    <!-- FOOTER
+    {% block footer %}
+    <footer class="footer-custom row">
+        <div class="col-md-6">
+            <h6>NOS HORAIRES D'OUVERTURE</h6>
         {{ render(controller('App\\Controller\\FooterController::index')) }}
-        <p>
-            &copy; 2023 Quai Antique.<br/>
-            <small>Mangez frais, mangez sain<br/>
-                <a href="#">Privacy</a> &middot; <a href="#">Terms</a></small>
-        </p>
-
+        </div>
+        <div class="col-md-6">
+            <h6>CONTACT</h6>
+            <p>Tel : 0606060606</p>
+            <p>Email : Contact@quaiantique.fr</p>
+            <p>Adresse : 416 Avenue des Alpes, 73000 Chambery</p>
+        </div>
+        <hr>
+        <div>
+            <p>
+                &copy; 2023 Quai Antique.<br/>
+                <small>Mangez frais, mangez sain<br/>
+                    <a href="#">Privacy</a> &middot; <a href="#">Terms</a></small>
+            </p>
+        </div>
 
     </footer>
     {% endblock %}-->

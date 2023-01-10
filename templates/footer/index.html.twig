@@ -3,10 +3,10 @@
 {% block footer %}
 <footer>
     <div class="container">
-        <p>Horaires d'ouverture déjeuner : {{ timeOpenNoon|date('H:i') }}</p>
-        <p>Horaires de fermeture déjeuner : {{ timeCloseNoon|date('H:i') }}</p>
-        <p>Horaires d'ouverture dîner : {{ timeOpenEvening|date('H:i') }}</p>
-        <p>Horaires de fermeture dîner : {{ timeCloseEvening|date('H:i') }}</p>
+        <div class="row">
+        <p>Ouvert toute la semaine, de {{ timeOpenNoon|date('H:i') }} à {{ timeCloseNoon|date('H:i') }} pour le déjeuner</p>
+        <p>et de {{ timeOpenEvening|date('H:i') }} à {{ timeCloseEvening|date('H:i') }} pour le diner</p>
+        </div>
     </div>
 </footer>
 {% endblock %}

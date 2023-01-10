@@ -51,13 +51,6 @@ class BookingController extends AbstractController
                 $day = $booking->getDay();
                 $hour = $booking->getHour();
                 $seats = $booking->getSeats();
-                /*if ($day === null || $hour === null) {
-
-                    // Si le jour ou l'heure sont null, affiche un message d'erreur
-                    $this->addFlash('danger', 'Jour ou heure de réservation non valides');
-                } else {
-                    // Récupère le nombre de places demandées
-                    */
 
                     if ($seats <= 0) {
                         // Si le nombre de places est inférieur ou égal à zéro, affiche un message d'erreur
@@ -73,12 +66,13 @@ class BookingController extends AbstractController
                             $this->entityManager->persist($booking);
                             $this->entityManager->flush();
                             $this->addFlash('success', 'Votre réservation a bien été envoyé');
+                            return $this->redirectToRoute('app_account');
                         } else {
                             $this->addFlash('danger', 'Il n\'y a pas assez de places disponibles pour votre réservation');
                         }
                     }
                 }
-            /*}*/
+
 
                 return $this->render('booking/index.html.twig', [
                     'form' => $form
