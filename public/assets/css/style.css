@@ -47,16 +47,9 @@ li:hover{
     height: 60rem;
 }
 /* Slider */
-.slide-1 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/cover1.jpg);
-}
 
-.slide-2 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/cover2.jpg);
-}
-
-#hero-carousel h6::after,
-#hero-carousel h6::before {
+#hero-carousel h3::after,
+#hero-carousel h3::before {
     content: " ";
     width: 40px;
     height: 4px;
