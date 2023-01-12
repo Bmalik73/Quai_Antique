@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Quai Antique le meilleur restaurant de Chambery">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <title>{% block title %}Quai Antique - Restaurant{% endblock %}</title>
+    <meta name="description" content="Découvrez les plats savoureux et les menus de saison créés par notre chef étoilé au Quai Antique. Réservez votre table dès maintenant et venez déguster notre cuisine gastronomique à Chambery.">
+    <meta name="keywords" content="restaurant gastronomique, cuisine étoilée, menu de saison, réservation de table, Chambery">
+    <title>{% block title %}Quai Antique - Restaurant gastronomique étoilé à Chambéry{% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     {% endblock %}
@@ -30,7 +30,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_menu') }}">Menus</a>
+                        <a class="nav-link" href="{{ path('app_menu') }}">Menu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_booking') }}">Reservations</a>
@@ -74,7 +74,7 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active c-item">
-                    <img src="{{ asset('assets/img/cover1.jpg') }}" class="d-block w-100 c-img" alt="Slide 1">
+                    <img src="{{ asset('assets/img/cover1.jpg') }}" class="d-block w-100 c-img" alt="Plat Gastronomique">
                     <div class="carousel-caption top-0 mt-5">
                         <div class="row justify-content-center mt-5">
                             <div class="col-lg-8 mt-5">
@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <div class="carousel-item c-item">
-                    <img src="{{ asset('assets/img/cover2.jpg') }}" class="d-block w-100 c-img" alt="Slide 2">
+                    <img src="{{ asset('assets/img/cover2.jpg') }}" class="d-block w-100 c-img" alt="Plat Gastronomique">
                     <div class="carousel-caption top-0 mt-4">
                         <div class="row justify-content-center mt-5">
                             <div class="col-lg-8 mt-5">
