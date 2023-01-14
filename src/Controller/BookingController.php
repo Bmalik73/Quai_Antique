@@ -65,7 +65,9 @@ class BookingController extends AbstractController
                             // Enregistre l'objet Booking en base de données
                             $this->entityManager->persist($booking);
                             $this->entityManager->flush();
+                            // ajoute un message flash pour informer l'utilisateur que la réservation a été envoyé
                             $this->addFlash('success', 'Votre réservation a bien été envoyé');
+                            // redirige l'utilisateur vers la route 'app_account'
                             return $this->redirectToRoute('app_account');
                         } else {
                             $this->addFlash('danger', 'Il n\'y a pas assez de places disponibles pour votre réservation');
@@ -73,7 +75,7 @@ class BookingController extends AbstractController
                     }
                 }
 
-
+                // rend le template 'booking/index.html.twig' en passant le formulaire à afficher
                 return $this->render('booking/index.html.twig', [
                     'form' => $form
                 ]);

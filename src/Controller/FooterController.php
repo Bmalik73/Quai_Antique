@@ -14,10 +14,12 @@ class FooterController extends AbstractController
     #[Route('/footer', name: 'app_footer')]
     public function index(EntityManagerInterface $entityManager): Response
     {
-        // Récupération du restaurant à afficher
+        // Récupération du restaurant à afficher en utilisant son ID (1)
         $restaurant = $entityManager
             ->getRepository(Restaurant::class)
             ->find(1);
+
+        // Rend la vue 'footer/index.html.twig' en passant les horaires d'ouverture et de fermeture
         return $this->render('footer/index.html.twig', [
             'timeOpenNoon' => $restaurant->getTimeOpenNoon(),
             'timeCloseNoon' => $restaurant->getTimeCloseNoon(),

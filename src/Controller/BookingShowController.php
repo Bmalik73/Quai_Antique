@@ -10,9 +10,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BookingShowController extends AbstractController
 {
+    // déclarez une variable privée pour le gestionnaire d'entités
     private $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager) {
+        // stocker le gestionnaire d'entités dans la variable privée
         $this->entityManager = $entityManager;
 
     }
@@ -20,9 +22,12 @@ class BookingShowController extends AbstractController
     #[Route('/mes-reservations', name: 'app_booking_show')]
     public function index(): Response
     {
+        // récupère l'utilisateur actuellement connecté
         $user = $this->getUser();
+        // récupère l'email de l'utilisateur
         $email = $user->getEmail();
 
+        // utilise le gestionnaire d'entités pour créer une requête pour sélectionner les réservations où l'email correspond à l'email de l'utilisateur connecté
         $bookings = $this->entityManager->createQuery(
             'SELECT b
             FROM App:Booking b
@@ -30,6 +35,7 @@ class BookingShowController extends AbstractController
         )->setParameter('email', $email)
             ->getResult();
 
+        // rend la vue et passe les réservations à afficher
         return $this->render('booking_show/index.html.twig', [
             'bookings' => $bookings
         ]);

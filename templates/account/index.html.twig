@@ -11,20 +11,20 @@
     <div class="row">
         <div class="col-md-3">
             {% if is_granted('ROLE_ADMIN') %}
-            <div class="account-item text-center">
+            <div class="account-item text-center m-1">
                 <img src="{{ asset('assets/img/cadenas.png') }}" alt="Modifier mon mot de passe"><br>
                 <a href="/admin">Vous étes un administrateur, accéder au backoffice ? </a>
             </div>
             {% endif %}
         </div>
         <div class="col-md-3">
-            <div class="account-item text-center">
+            <div class="account-item text-center m-1">
                 <img src="{{ asset('assets/img/cadenas.png') }}" alt="Modifier mon mot de passe"><br>
                 <a href="{{ path('app_account_password') }}">Modifier mon mot de passe</a>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="account-item text-center">
+            <div class="account-item text-center m-1">
                 <img src="{{ asset('assets/img/reservation.png') }}" alt="Mes réservations"><br>
                 <a href="{{ path('app_booking_show') }}">Mes réservations</a>
             </div>
