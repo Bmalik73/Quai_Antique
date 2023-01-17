@@ -37,7 +37,7 @@ class RegisterController extends AbstractController
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
-            $this->addFlash('success', 'Votre compte a été crée avec succés');
+            $this->addFlash('success', 'Votre compte a été créé avec succés');
             return $this->redirectToRoute('app_account');
         }
 
