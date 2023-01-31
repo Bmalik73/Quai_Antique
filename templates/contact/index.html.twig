@@ -3,7 +3,7 @@
 {% block title %}Contact - Quai Antique{% endblock %}
 
 {% block content %}
-    <h1>Contact</h1>
+    <h1></h1>
     <p>N'hésitez pas à prendre contact avec notre équipe, nous vous répondrons dans les meilleurs délais.</p>
     {% for message in app.flashes('notice') %}
         <div class="alert alert-info">{{ message }}</div>
@@ -18,4 +18,22 @@
              06 06 06 06 06</br></p>
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        const title = document.querySelector("h1");
+        const text = "Contact";
+
+        function typewriter(text, index) {
+            if (index < text.length) {
+                setTimeout(() => {
+                    title.innerHTML += `<span>${text[index]}</span>`;
+                    typewriter(text, index + 1);
+                }, 100);
+            }
+        }
+        setTimeout(() => {
+            typewriter(text, 0);
+        }, 5);
+    </script>
 {% endblock %}

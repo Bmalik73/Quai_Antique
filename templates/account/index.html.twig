@@ -3,7 +3,7 @@
 {% block title %}Mon compte - Quai Antique{% endblock %}
 
 {% block content %}
-    <h1>Mon compte</h1>
+    <h1></h1>
     Bienvenue {{ app.user.firstname }} dans votre compte.<br/>
     C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personnelles.
     <hr>
@@ -11,10 +11,10 @@
     <div class="row">
         <div class="col-md-3">
             {% if is_granted('ROLE_ADMIN') %}
-            <div class="account-item text-center m-1">
-                <img src="{{ asset('assets/img/cadenas.png') }}" alt="Modifier mon mot de passe"><br>
-                <a href="/admin">Vous étes un administrateur, accéder au backoffice ? </a>
-            </div>
+                <div class="account-item text-center m-1">
+                    <img src="{{ asset('assets/img/cadenas.png') }}" alt="Modifier mon mot de passe"><br>
+                    <a href="/admin">Vous étes un administrateur, accéder au backoffice ? </a>
+                </div>
             {% endif %}
         </div>
         <div class="col-md-3">
@@ -31,5 +31,24 @@
         </div>
     </div>
     <hr>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        const title = document.querySelector("h1");
+        const text = "Mon compte";
+
+        function typewriter(text, index) {
+            if (index < text.length) {
+                setTimeout(() => {
+                    title.innerHTML += `<span>${text[index]}</span>`;
+                    typewriter(text, index + 1);
+                }, 100);
+            }
+        }
+        setTimeout(() => {
+            typewriter(text, 0);
+        }, 5);
+    </script>
 {% endblock %}
 

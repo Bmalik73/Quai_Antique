@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="isBest">
-        <h2>Nos meilleurs ventes</h2>
+        <h2></h2>
         <p>Découvrez les plats les plus apprécié de notre clientèle.</p>
     </div>
     <div class="row" >
@@ -15,6 +15,25 @@
     {% endfor %}
 
     </div><!-- /.row -->
+    {% block javascripts %}
+        <script>
+            const title = document.querySelector("h2");
+            const text = "Nos meilleurs ventes";
+
+            function typewriter(text, index) {
+                if (index < text.length) {
+                    setTimeout(() => {
+                        title.innerHTML += `<span>${text[index]}</span>`;
+                        typewriter(text, index + 1);
+                    }, 100);
+                }
+            }
+
+            setTimeout(() => {
+                typewriter(text, 0);
+            }, 100);
+        </script>
+    {% endblock %}
 
 
 
@@ -67,3 +86,4 @@
     <!-- /END THE FEATURETTES -->
 
 {% endblock %}
+

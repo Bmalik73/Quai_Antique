@@ -3,7 +3,7 @@
 {% block title %}Réservation - Quai Antique{% endblock %}
 
 {% block content %}
-    <h1>Réservation</h1>
+    <h1></h1>
 
     <div class="row">
         <div class="col-md-8">{{ form(form) }}</div>
@@ -16,4 +16,22 @@
         </div>
     </div>
 
+{% endblock %}
+{% block javascripts %}
+    <script>
+        const title = document.querySelector("h1");
+        const text = "Réservation";
+
+        function typewriter(text, index) {
+            if (index < text.length) {
+                setTimeout(() => {
+                    title.innerHTML += `<span>${text[index]}</span>`;
+                    typewriter(text, index + 1);
+                }, 100);
+            }
+        }
+        setTimeout(() => {
+            typewriter(text, 0);
+        }, 5);
+    </script>
 {% endblock %}

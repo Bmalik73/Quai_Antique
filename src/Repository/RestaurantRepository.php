@@ -42,8 +42,11 @@ class RestaurantRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('r')
             ->select('r.seatNoon, r.seatEvening')
-            ->where('r.timeOpenNoon <= :hour')
+            ->where('r.timeOpenNoon <= :time')
+            ->andWhere('r.timeCloseNoon > :time')
+            ->andWhere('r.timeOpenNoon <= :hour')
             ->andWhere('r.timeCloseNoon > :hour')
+            ->setParameter('time', $day->format('Y-m-d'))
             ->setParameter('hour', $day->format('H:i:s'));
         $results = $qb->getQuery()->getOneOrNullResult();
         if ($results && $seats <= $results['seatNoon']) {
@@ -52,8 +55,11 @@ class RestaurantRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('r')
             ->select('r.seatNoon, r.seatEvening')
-            ->where('r.timeOpenEvening <= :hour')
+            ->where('r.timeOpenEvening <= :time')
+            ->andWhere('r.timeCloseEvening > :time')
+            ->andWhere('r.timeOpenEvening <= :hour')
             ->andWhere('r.timeCloseEvening > :hour')
+            ->setParameter('time', $day->format('Y-m-d'))
             ->setParameter('hour', $day->format('H:i:s'));
         $results = $qb->getQuery()->getOneOrNullResult();
         if ($results && $seats <= $results['seatEvening']) {

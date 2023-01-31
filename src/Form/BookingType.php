@@ -15,6 +15,8 @@ use Symfony\Component\Security\Core\Security;
 
 class BookingType extends AbstractType
 {
+    private Security $security;
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $email = $this->security->getUser()->getEmail();

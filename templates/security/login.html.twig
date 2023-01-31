@@ -16,7 +16,7 @@
                 </div>
             {% endif %}
 
-            <h1 class="h3 mb-3 font-weight-normal">Merci de vous connecter</h1>
+            <h1 class="h3 mb-3 font-weight-normal"></h1>
             <label for="inputEmail">Votre email</label>
             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Votre adresse email" autocomplete="email" required autofocus>
             <label for="inputPassword">Votre mot de passe</label>
@@ -45,4 +45,22 @@
 
         </form>
     </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        const title = document.querySelector("h1");
+        const text = "Merci de vous connecter";
+
+        function typewriter(text, index) {
+            if (index < text.length) {
+                setTimeout(() => {
+                    title.innerHTML += `<span>${text[index]}</span>`;
+                    typewriter(text, index + 1);
+                }, 100);
+            }
+        }
+        setTimeout(() => {
+            typewriter(text, 0);
+        }, 5);
+    </script>
 {% endblock %}

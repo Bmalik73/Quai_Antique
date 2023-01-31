@@ -3,7 +3,7 @@
 {% block title %}{% endblock %}
 
 {% block content %}
-       <h1>Récapitulatif de mes réservations</h1>
+       <h1></h1>
        Bienvenue {{ app.user.firstname }} dans votre espace de réservation.<br/>
        C'est dans cet espace que vous allez pouvoir voir toutes vos réservations.
        <hr>
@@ -18,4 +18,23 @@
               </div>
        {% endfor %}
 
+{% endblock %}
+{% block javascripts %}
+       <script>
+              const title = document.querySelector("h1");
+              const text = "Récapitulatif de mes réservations";
+
+              function typewriter(text, index) {
+                     if (index < text.length) {
+                            setTimeout(() => {
+                                   title.innerHTML += `<span>${text[index]}</span>`;
+                                   typewriter(text, index + 1);
+                            }, 100);
+                     }
+              }
+
+              setTimeout(() => {
+                     typewriter(text, 0);
+              }, 100);
+       </script>
 {% endblock %}

@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-9">
 
-            <h1>Notre menu</h1>
+            <h1></h1>
 
             <div class="row product-container">
                 {% for menu in menus %}
@@ -23,4 +23,22 @@
         </div>
     </div>
 
+{% endblock %}
+{% block javascripts %}
+    <script>
+        const title = document.querySelector("h1");
+        const text = "Notre menu";
+
+        function typewriter(text, index) {
+            if (index < text.length) {
+                setTimeout(() => {
+                    title.innerHTML += `<span>${text[index]}</span>`;
+                    typewriter(text, index + 1);
+                }, 100);
+            }
+        }
+        setTimeout(() => {
+            typewriter(text, 0);
+        }, 5);
+    </script>
 {% endblock %}
