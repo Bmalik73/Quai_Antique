@@ -75,7 +75,21 @@ li:hover{
 .isBest h2 {
     font-size: 40px;
 }
+.product-item img {
+    width: 250px;
+    height: 200px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
 
+.product-item :hover img {
+    width: 270px; /* on affiche l'image au carré */
+    height: 220px;
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
 
 /* Featurettes
 ------------------------- */
