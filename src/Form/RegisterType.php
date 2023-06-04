@@ -55,8 +55,8 @@ class RegisterType extends AbstractType
                 'label' => 'Votre mot de passe',
                 'required' => true,
                 'constraints' => [
-                   new Regex('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/',
-                   "Il faut un mot de passe de 8 caractère avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial")
+                   new Regex('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{10,}$/',
+                   "Il faut un mot de passe de 10 caractère avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial")
                 ],
                 'first_options' => [
                     'label' => 'Mot de passe',

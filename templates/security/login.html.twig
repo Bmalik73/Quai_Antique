@@ -3,13 +3,17 @@
 {% block title %}Se connecter - Quai Antique{% endblock %}
 
 {% block content %}
+    <!-- Début du bloc de contenu -->
     <div class="block-small m">
+        <!-- Début du formulaire -->
         <form method="post">
 
+            <!-- Affiche un message d'erreur si l'erreur existe -->
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
 
+            <!-- Affiche les informations de l'utilisateur s'il est connecté -->
             {% if app.user %}
                 <div class="mb-3">
                     You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
@@ -17,11 +21,14 @@
             {% endif %}
 
             <h1 class="h3 mb-3 font-weight-normal"></h1>
+            <!-- Champ pour saisir l'email -->
             <label for="inputEmail">Votre email</label>
             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Votre adresse email" autocomplete="email" required autofocus>
+            <!-- Champ pour saisir le mot de passe -->
             <label for="inputPassword">Votre mot de passe</label>
             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Votre mot de passe" autocomplete="current-password" required>
 
+            <!-- Champ caché pour le token CSRF -->
             <input type="hidden" name="_csrf_token"
                    value="{{ csrf_token('authenticate') }}"
             >
@@ -36,16 +43,22 @@
                 </label>
             </div>
             #}
+            <!-- Ligne de séparation -->
             <hr>
+            <!-- Lien pour s'inscrire si l'utilisateur n'a pas de compte -->
             <p class="text-center">Ou souhaitez-vous<a href="{{ path('app_register') }}">créer un compte</a> ?</p>
 
+            <!-- Bouton pour soumettre le formulaire -->
             <button class="btn btn-lg btn-dark btn-block" type="submit">
                 Se connecter
             </button>
 
         </form>
+        <!-- Fin du formulaire -->
     </div>
+    <!-- Fin du bloc de contenu -->
 {% endblock %}
+
 {% block javascripts %}
     <script>
         const title = document.querySelector("h1");

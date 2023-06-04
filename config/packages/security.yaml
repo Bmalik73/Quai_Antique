@@ -28,6 +28,12 @@ security:
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
 
+            # configure the maximum login attempts
+            login_throttling:
+                max_attempts: 3          # per minute ...
+
+
+
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:

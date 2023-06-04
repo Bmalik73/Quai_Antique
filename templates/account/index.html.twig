@@ -12,7 +12,7 @@
         <div class="col-md-3">
             {% if is_granted('ROLE_ADMIN') %}
                 <div class="account-item text-center m-1">
-                    <img src="{{ asset('assets/img/cadenas.png') }}" alt="Modifier mon mot de passe"><br>
+                    <img src="{{ asset('assets/img/cadenas.png') }}" alt="backoffice"><br>
                     <a href="/admin">Vous étes un administrateur, accéder au backoffice ? </a>
                 </div>
             {% endif %}
@@ -35,17 +35,28 @@
 
 {% block javascripts %}
     <script>
+        // Sélectionne l'élément h1 de la page
         const title = document.querySelector("h1");
+
+        // Définit le texte qui sera utilisé pour l'effet de machine à écrire
         const text = "Mon compte";
 
+        // Fonction récursive typewriter qui ajoute progressivement les caractères à l'élément h1
         function typewriter(text, index) {
+            // Vérifie si l'index est inférieur à la longueur du texte
             if (index < text.length) {
+                // Utilise setTimeout pour créer un délai de 100 ms entre chaque caractère
                 setTimeout(() => {
+                    // Ajoute le caractère actuel à l'élément h1 à l'aide d'une balise span
                     title.innerHTML += `<span>${text[index]}</span>`;
+
+                    // Appelle récursivement la fonction typewriter avec le prochain index
                     typewriter(text, index + 1);
                 }, 100);
             }
         }
+
+        // Appelle la fonction typewriter avec un délai initial de 5 ms
         setTimeout(() => {
             typewriter(text, 0);
         }, 5);

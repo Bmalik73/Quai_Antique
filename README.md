@@ -4,7 +4,7 @@ Pour déployer une application Symfony en local, vous avez besoin de suivre les 
 
 1. Assurez-vous d'avoir les prérequis suivants installés sur votre ordinateur :
 
-    - [PHP 7.1 ou version ultérieure](https://www.php.net/downloads.php)
+    - [PHP 8 ou version ultérieure](https://www.php.net/downloads.php)
     - [MySQL](https://www.mysql.com/downloads/) ou un autre serveur de base de données compatible avec Symfony, je recommande [PhpMyAdmin](https://www.phpmyadmin.net/downloads/)
     - Un serveur Web (par exemple Apache ou Nginx), je recommande [Xampp](https://www.apachefriends.org/fr/download.html).
     - [Composer](https://getcomposer.org/download/)
